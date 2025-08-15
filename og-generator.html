@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            position: relative;
+            overflow: hidden;
+        }
+        .og-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold mb-8">OG Image Generator</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Bony Thomas OG Image -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Bony Thomas</h2>
+                <div class="og-container bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="og-gradient w-full h-full p-12 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <div class="text-6xl font-bold text-white">Bony Thomas</div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-white text-2xl font-medium">Resume</div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <div class="text-4xl font-bold text-white/90 mb-2">Senior Software Engineer</div>
+                            <div class="text-2xl text-white/80">Building Scalable Cloud Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button onclick="downloadOG('bonythomas')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Download Image
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mariyam Rajeev George OG Image -->
+            <div>
+                <h2 class="text-xl font-semibold mb-4">Mariyam Rajeev George</h2>
+                <div class="og-container bg-white rounded-lg shadow-xl overflow-hidden">
+                    <div class="og-gradient w-full h-full p-12 flex flex-col justify-between">
+                        <div class="flex justify-between items-start">
+                            <div class="text-6xl font-bold text-white">Mariyam Rajeev George</div>
+                            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                                <div class="text-white text-2xl font-medium">Resume</div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <div class="text-4xl font-bold text-white/90 mb-2">Senior Data Engineer</div>
+                            <div class="text-2xl text-white/80">Expert in Big Data & Cloud Solutions</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <button onclick="downloadOG('mariyam')" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Download Image
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function downloadOG(type) {
+            const container = type === 'bonythomas' 
+                ? document.querySelector('.og-container:first-child')
+                : document.querySelector('.og-container:last-child');
+            
+            // Use html2canvas to capture the container
+            const canvas = await html2canvas(container, {
+                scale: 2, // Higher scale for better quality
+                useCORS: true,
+                logging: false,
+                backgroundColor: null
+            });
+            
+            // Convert canvas to image and download
+            const link = document.createElement('a');
+            link.download = `og-image-${type}.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</body>
+</html>
