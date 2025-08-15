@@ -14,22 +14,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cv.jarocki.me"),
+  metadataBase: new URL("https://bonythomas-resume.vercel.app"),
   title: {
     default: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
     template: `%s | ${RESUME_DATA.name}`,
   },
-  description: RESUME_DATA.about,
+  description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
   keywords: [
     "resume",
     "cv",
     "portfolio",
     RESUME_DATA.name,
-    "software engineer",
-    "full stack developer",
-    "react",
-    "next.js",
-    "typescript",
+    "data engineer",
+    "big data",
+    "databricks",
+    "apache spark",
+    "python",
+    "azure",
   ],
   authors: [{ name: RESUME_DATA.name }],
   creator: RESUME_DATA.name,
@@ -42,10 +43,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: RESUME_DATA.personalWebsiteUrl,
-    siteName: `${RESUME_DATA.name}'s CV`,
+    url: "https://bonythomas-resume.vercel.app",
+    siteName: `${RESUME_DATA.name}'s Resume`,
     title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
+    description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
+    images: [
+      {
+        url: "https://bonythomas-resume.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${RESUME_DATA.name}'s Resume`,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -60,12 +69,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@bonythomas",
+    creator: "@bonythomas",
     title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: RESUME_DATA.about,
-    creator: "@BartoszJarocki",
+    description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
+    images: ["https://bonythomas-resume.vercel.app/og-image.jpg"],
   },
   alternates: {
-    canonical: RESUME_DATA.personalWebsiteUrl,
+    canonical: "https://bonythomas-resume.vercel.app",
   },
 };
 
