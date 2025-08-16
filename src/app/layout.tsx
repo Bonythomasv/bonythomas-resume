@@ -49,19 +49,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
+    url: siteUrl, // This sets og:url
     siteName: `${RESUME_DATA.name}'s Resume`,
     title: siteTitle,
     description: siteDescription,
-    images: [
-      {
-        url: `${siteUrl}/og-image.jpeg?v=2`,
-        width: 1200,
-        height: 630,
-        alt: siteTitle,
-        type: 'image/jpeg',
-      },
-    ],
+    // No image specified to prevent any image from showing in social media previews
   },
   robots: {
     index: true,
@@ -75,29 +67,27 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary", // Using 'summary' instead of 'summary_large_image' to prevent image display
     site: "@bonythomas",
     creator: "@bonythomas",
     title: siteTitle,
     description: siteDescription,
-    images: [
-      {
-        url: `${siteUrl}/og-image.jpeg?v=2`,
-        width: 1200,
-        height: 630,
-        alt: siteTitle,
-      },
-    ],
+    // No image specified to prevent any image from showing in social media previews
   },
   alternates: {
     canonical: siteUrl,
   },
-  // Additional metadata for LinkedIn
+  // Additional metadata for LinkedIn and Facebook
   applicationName: `${RESUME_DATA.name}'s Resume`,
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: siteTitle,
+  },
+  // Facebook App ID - you'll need to replace 'YOUR_FACEBOOK_APP_ID' with your actual Facebook App ID
+  // If you don't have one, you can remove this line or get one from: https://developers.facebook.com/
+  other: {
+    'fb:app_id': 'YOUR_FACEBOOK_APP_ID', // Replace with your Facebook App ID or remove if not needed
   },
 };
 
