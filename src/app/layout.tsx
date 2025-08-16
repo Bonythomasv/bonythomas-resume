@@ -13,7 +13,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://bonythomas-resume.vercel.app";
+// Add a cache-busting parameter with the current timestamp
+const timestamp = Date.now();
+const siteUrl = `https://bonythomas-resume.vercel.app?t=${timestamp}`;
 const siteTitle = `${RESUME_DATA.name} - ${RESUME_DATA.about}`;
 const siteDescription = `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`;
 
@@ -88,6 +90,12 @@ export const metadata: Metadata = {
   // If you don't have one, you can remove this line or get one from: https://developers.facebook.com/
   other: {
     'fb:app_id': 'YOUR_FACEBOOK_APP_ID', // Replace with your Facebook App ID or remove if not needed
+    'og:type': 'website',
+    'og:site_name': `${RESUME_DATA.name}'s Resume`,
+    'og:title': siteTitle,
+    'og:description': siteDescription,
+    'og:url': siteUrl,
+    'og:updated_time': new Date().toISOString(),
   },
 };
 
