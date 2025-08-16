@@ -18,22 +18,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${RESUME_DATA.name} - Resume`,
     description: RESUME_DATA.about,
-    type: "profile",
+    type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "https://cv.jarocki.me/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: `${RESUME_DATA.name}'s profile picture`,
-      },
-    ],
+    // No image specified to prevent social platforms from using a preview image
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${RESUME_DATA.name} - Resume`,
     description: RESUME_DATA.about,
-    images: ["https://cv.jarocki.me/opengraph-image"],
+    // No image specified to prevent social platforms from using a preview image
   },
 };
 
