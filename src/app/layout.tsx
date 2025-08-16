@@ -39,6 +39,8 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+    date: false,
+    url: false
   },
   openGraph: {
     type: "website",

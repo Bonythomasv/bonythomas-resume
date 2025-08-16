@@ -181,7 +181,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - All contributors who have helped improve this project
 
 ---
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/BartoszJarocki">Bartosz Jarocki</a>
-</p>
