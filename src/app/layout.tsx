@@ -13,13 +13,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = "https://bonythomas-resume.vercel.app";
+const siteTitle = `${RESUME_DATA.name} - ${RESUME_DATA.about}`;
+const siteDescription = `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bonythomas-resume.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
+    default: siteTitle,
     template: `%s | ${RESUME_DATA.name}`,
   },
-  description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
+  description: siteDescription,
   keywords: [
     "resume",
     "cv",
@@ -45,16 +49,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://bonythomas-resume.vercel.app",
+    url: siteUrl,
     siteName: `${RESUME_DATA.name}'s Resume`,
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
-        url: "https://bonythomas-resume.vercel.app/og-image.jpeg",
+        url: `${siteUrl}/og-image.jpeg`,
         width: 1200,
         height: 630,
-        alt: `${RESUME_DATA.name}'s Resume`,
+        alt: siteTitle,
+        type: 'image/jpeg',
       },
     ],
   },
@@ -73,12 +78,26 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@bonythomas",
     creator: "@bonythomas",
-    title: `${RESUME_DATA.name} - ${RESUME_DATA.about}`,
-    description: `Professional resume of ${RESUME_DATA.name}, ${RESUME_DATA.about}`,
-    images: ["https://bonythomas-resume.vercel.app/og-image.jpeg"],
+    title: siteTitle,
+    description: siteDescription,
+    images: [
+      {
+        url: `${siteUrl}/og-image.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: siteTitle,
+      },
+    ],
   },
   alternates: {
-    canonical: "https://bonythomas-resume.vercel.app",
+    canonical: siteUrl,
+  },
+  // Additional metadata for LinkedIn
+  applicationName: `${RESUME_DATA.name}'s Resume`,
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: siteTitle,
   },
 };
 
